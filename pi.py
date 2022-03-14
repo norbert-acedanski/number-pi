@@ -46,7 +46,7 @@ class calculatePi():
         print("")
 
 if __name__ == "__main__":
-    piObject = calculatePi()
-    piObject.printBasicInfoAboutPi()
-    piObject.leibnizFormula(10)
-    piObject.johnWallisFormula(10)
+    piApproximations = calculatePi()
+    piApproximations.printBasicInfoAboutPi()
+    piApproximations.leibnizFormula(10)
+    piApproximations.johnWallisFormula(10)
