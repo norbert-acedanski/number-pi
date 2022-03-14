@@ -38,11 +38,17 @@ class calculatePi():
         pi *= 2
         print("\nπ calculated with John Wallis formula, using " + str(numberOfElements) + " elements (n) is equal to: " + str(pi))
         return pi
+
+    def newtonEulerFormula(self, numberOfElements: int, printBasicInfo: bool=True):
+        pass
+
+    def nilakanthaFormula(self, numberOfElements: int, printBasicInfo: bool=True):
+        pass
     
-    def ramanujanFormula(self):
+    def ramanujanFormula(self, numberOfElements: int, printBasicInfo: bool=True):
         print("")
     
-    def chudnovskyFormula(self):
+    def chudnovskyFormula(self, numberOfElements: int, printBasicInfo: bool=True):
         print("")
 
 if __name__ == "__main__":
