@@ -65,9 +65,9 @@ class calculatePi():
     
     def ramanujanFormula(self, numberOfElements: int, printBasicInfo: bool=True):
         if printBasicInfo:
-            print("\nRamanujan's formula states, that the product of the 2*sqrt(2)/9801 and the sum from n=0 to infinity of (4n)!(1103 + 26390n)/[(n!)^4*396^(4n)]= 1/π")
+            print("\nRamanujan's formula states, that the product of the 2*sqrt(2)/9801 and the sum from n=0 to infinity of (4n)!(1103 + 26390n)/[(n!)^4*396^(4n)] = 1/π")
             # print("The first few elements: 1/(2*3*4) - 1/(4*5*6) + 1/(6*7*8) - ... = 1/π")
-            # print("It is one of the methods, that takes a very large number of the \"n\" to see the convergence")
+            print("It is one of the methods, that takes a very small number of the \"n\" to see the convergence (1 is enough)")
         pi = 0
         for i in range(0, numberOfElements + 1):
             pi += math.factorial(4*i)*(1103 + 26390*i)/(math.factorial(i)**4*396**(4*i))
@@ -77,7 +77,17 @@ class calculatePi():
         return pi
     
     def chudnovskyFormula(self, numberOfElements: int, printBasicInfo: bool=True):
-        print("")
+        if printBasicInfo:
+            print("\nDavid Chudnovsky and Gregory Chudnovsky's formula states, that the product of 12 and the sum from n=0 to infinity of (-1)^n*(6n)!*(13591409 + 545140134n)/[(3n)!*(n!)^3*640320^(3n + 3/2)] = 1/π")
+            # print("The first few elements: 1/(2*3*4) - 1/(4*5*6) + 1/(6*7*8) - ... = 1/π")
+            print("It is one of the methods, that takes a very small number of the \"n\" to see the convergence (1 is enough)")
+        pi = 0
+        for i in range(0, numberOfElements + 1):
+            pi += ((-1)**i*math.factorial(6*i)*(13591409 + 545140134*i))/(math.factorial(3*i)*math.factorial(i)**3*640320**(3*i + 3/2))
+        pi *= 12
+        pi = 1/pi
+        print("\nπ calculated with Chudnovsky formula, using " + str(numberOfElements) + " elements (n) is equal to: " + str(pi))
+        return pi
 
 if __name__ == "__main__":
     piApproximations = calculatePi()
@@ -87,3 +97,4 @@ if __name__ == "__main__":
     piApproximations.newtonFormula(10)
     piApproximations.nilakanthaFormula(10)
     piApproximations.ramanujanFormula(1)
+    piApproximations.chudnovskyFormula(1)
