@@ -15,5 +15,11 @@ Python 3.8.0
 # Usage
 Allows to play with different methods of calculating π.
 
+# References
+[1] Pi - https://en.wikipedia.org/wiki/Pi
+[2] Pi (PL) - https://pl.wikipedia.org/wiki/Pi
+[3] Approximations of pi - https://en.wikipedia.org/wiki/Approximations_of_%CF%80
+[4] Nilakantha's formula for pi - http://www.maeckes.nl/Formule%20voor%20pi%20(Nilakantha)%20GB.html
+
 # Licence
 Distributed under the MIT License. See LICENSE file for more information.
