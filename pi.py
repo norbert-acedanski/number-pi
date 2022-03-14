@@ -15,19 +15,29 @@ class calculatePi():
         print("The first 50 decimal digits are 3.14159 26535 89793 23846 26433 83279 50288 41971 69399 37510...")
         print("π shows up in many different equations such as e^(iπ) + 1 = 0")
 
-    def leibnizFormula(self, numberOfElements: int, printBasicInfo=True):
+    def leibnizFormula(self, numberOfElements: int, printBasicInfo: bool=True):
         if printBasicInfo:
             print("\nLeibniz formula states, that the sum from n=0 to infinity of (-1)^n/(2n + 1) = π/4")
             print("The first few elements: 1/1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = π/4")
-            print("It is on of the methods, that takes a very large number of the \"n\" to see the convergence")
+            print("It is one of the methods, that takes a very large number of the \"n\" to see the convergence")
         pi = 0
         for i in range(numberOfElements):
             pi += (-1)**i/(2*i + 1)
         pi *= 4
         print("\nπ calculated with Leibniz formula, using " + str(numberOfElements) + " elements (n) is equal to: " + str(pi))
+        return pi
 
-    def johnWallisFormula(self):
-        print("")
+    def johnWallisFormula(self, numberOfElements: int, printBasicInfo: bool=True):
+        if printBasicInfo:
+            print("\nJohn Wallis formula states, that the product from n=1 to infinity of 2n/(2n - 1)*2n/(2n + 1) = π/2")
+            print("The first few elements: 2/1*2/3 * 4/3*4/5 * 6/5*6/7 * ... = π/2")
+            print("It is one of the methods, that takes a very large number of the \"n\" to see the convergence")
+        pi = 1
+        for i in range(1, numberOfElements + 1):
+            pi *= 2*i/(2*i - 1)*2*i/(2*i + 1)
+        pi *= 2
+        print("\nπ calculated with John Wallis formula, using " + str(numberOfElements) + " elements (n) is equal to: " + str(pi))
+        return pi
     
     def ramanujanFormula(self):
         print("")
@@ -39,3 +49,4 @@ if __name__ == "__main__":
     piObject = calculatePi()
     piObject.printBasicInfoAboutPi()
     piObject.leibnizFormula(10)
+    piObject.johnWallisFormula(10)
