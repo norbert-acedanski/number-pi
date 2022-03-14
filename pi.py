@@ -39,12 +39,21 @@ class calculatePi():
         print("\nπ calculated with John Wallis formula, using " + str(numberOfElements) + " elements (n) is equal to: " + str(pi))
         return pi
 
-    def newtonEulerFormula(self, numberOfElements: int, printBasicInfo: bool=True):
-        pass
+    def newtonFormula(self, numberOfElements: int, printBasicInfo: bool=True):
+        if printBasicInfo:
+            print("\nNewton formula states, that the sum from n=0 to infinity of 2^n*(k!)^2/(2n + 1)! = π/2")
+            print("The first few elements: 1 + 1/3(1 + 2/5(1 + 3/7(1 + ...))) = π/2")
+            # print("It is one of the methods, that takes a very large number of the \"n\" to see the convergence")
+        pi = 0
+        for i in range(0, numberOfElements + 1):
+            pi += (2**i)*math.factorial(i)**2/math.factorial(2*i + 1)
+        pi *= 2
+        print("\nπ calculated with Newton's formula, using " + str(numberOfElements) + " elements (n) is equal to: " + str(pi))
+        return pi
 
     def nilakanthaFormula(self, numberOfElements: int, printBasicInfo: bool=True):
         if printBasicInfo:
-            print("\nNulakantha's formula states, that the product from n=1 to infinity of [(-1)^(n - 1)]/[2n*(2n + 1)*(2n + 2)] = (π - 3)/4")
+            print("\nNulakantha's formula states, that the sum from n=1 to infinity of [(-1)^(n - 1)]/[2n*(2n + 1)*(2n + 2)] = (π - 3)/4")
             print("The first few elements: 1/(2*3*4) - 1/(4*5*6) + 1/(6*7*8) - ... = (π - 3)/4")
             print("It is one of the methods, that takes a very large number of the \"n\" to see the convergence")
         pi = 0
@@ -66,3 +75,4 @@ if __name__ == "__main__":
     piApproximations.leibnizFormula(10)
     piApproximations.johnWallisFormula(10)
     piApproximations.nilakanthaFormula(10)
+    piApproximations.newtonEulerFormula(10)
