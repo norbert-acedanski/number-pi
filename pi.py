@@ -17,7 +17,7 @@ class calculatePi():
 
     def leibnizFormula(self, numberOfElements: int, printBasicInfo: bool=True):
         if printBasicInfo:
-            print("\nLeibniz formula states, that the sum from n=0 to infinity of (-1)^n/(2n + 1) = π/4")
+            print("\nLeibniz formula states, that the sum from n=0 to infinity of [(-1)^n]/(2n + 1) = π/4")
             print("The first few elements: 1/1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = π/4")
             print("It is one of the methods, that takes a very large number of the \"n\" to see the convergence")
         pi = 0
@@ -43,7 +43,16 @@ class calculatePi():
         pass
 
     def nilakanthaFormula(self, numberOfElements: int, printBasicInfo: bool=True):
-        pass
+        if printBasicInfo:
+            print("\nNulakantha's formula states, that the product from n=1 to infinity of [(-1)^(n - 1)]/[2n*(2n + 1)*(2n + 2)] = (π - 3)/4")
+            print("The first few elements: 1/(2*3*4) - 1/(4*5*6) + 1/(6*7*8) - ... = (π - 3)/4")
+            print("It is one of the methods, that takes a very large number of the \"n\" to see the convergence")
+        pi = 0
+        for i in range(1, numberOfElements + 1):
+            pi += (-1)**(i - 1)/(2*i*(2*i + 1)*(2*i + 2))
+        pi = 4*pi + 3
+        print("\nπ calculated with Nalikantha's formula, using " + str(numberOfElements) + " elements (n) is equal to: " + str(pi))
+        return pi
     
     def ramanujanFormula(self, numberOfElements: int, printBasicInfo: bool=True):
         print("")
@@ -56,3 +65,4 @@ if __name__ == "__main__":
     piApproximations.printBasicInfoAboutPi()
     piApproximations.leibnizFormula(10)
     piApproximations.johnWallisFormula(10)
+    piApproximations.nilakanthaFormula(10)
