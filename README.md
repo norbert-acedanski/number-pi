@@ -1,7 +1,7 @@
 # number-pi
 
 # About The Project
-Script provides some basic information about the number π and a few ways of calculating it.
+Script provides some basic information about the number π, a few ways of calculating it and visualization of the convergence of the series used to calculate π.
 
 # Built With
 Python 3.8.0
@@ -10,7 +10,8 @@ Python 3.8.0
 
 ### Working with document-statistics:
 1. Run the script.
-3. Script should print basic information about the number π and its calculated value in the terminal.
+2. Script should print basic information about the number π and its calculated value in the terminal.
+3. Script should also open a window with convergence of the series.
 
 # Usage
 Allows to play with different methods of calculating π.
