@@ -1,9 +1,10 @@
-from cmath import sqrt
 import math
+import matplotlib.pyplot as plt
+import sys
 
 class calculatePi():
     def __init__(self):
-        pass
+        self.plotNumber = 0
 
     def printBasicInfoAboutPi(self):
         print("The number π is a mathematical constant, approximately equal to " + str(math.pi) + ". It is defined in Euclidean geometry as the ratio of a circle's circumference to its diameter, and also has various equivalent definitions.")
@@ -89,6 +90,26 @@ class calculatePi():
         print("\nπ calculated with Chudnovsky formula, using " + str(numberOfElements) + " elements (n) is equal to: " + str(pi))
         return pi
 
+    def graphConvergence(self, functionToWorkWith, numberOfElements: int, startIndex: int=0, stopIndex: int=-1):
+        elementList = [functionToWorkWith(element) for element in range(numberOfElements)]
+        # if stopIndex == -1:
+        #     stopIndex = len(elementList)
+        stopIndex = len(elementList) if stopIndex == -1 else stopIndex
+        if startIndex < 0 or stopIndex > len(elementList):
+            print("Value of startIndex or stopIndex exceeded")
+            sys.exit()
+        # plt.figure(self.plotNumber)
+        plt.figure("Convergence of the " + functionToWorkWith.__name__)
+        plt.plot(range(startIndex, len(elementList[startIndex: stopIndex]) + startIndex), elementList[startIndex: stopIndex], label=functionToWorkWith.__name__, marker="o")
+        plt.plot([startIndex, len(elementList)], [math.pi, math.pi], ":")
+        plt.text(-len(elementList)/50 + startIndex, math.pi, "Exact value\nof π", horizontalalignment='center')
+        plt.xlabel("x - number of elements from the series")
+        plt.ylabel("y - calculated value of π")
+        plt.title("π calculations")
+        plt.legend(loc='center right', framealpha=0.5)
+        plt.show()
+        self.plotNumber += 1
+
 if __name__ == "__main__":
     piApproximations = calculatePi()
     piApproximations.printBasicInfoAboutPi()
@@ -98,3 +119,5 @@ if __name__ == "__main__":
     piApproximations.nilakanthaFormula(10)
     piApproximations.ramanujanFormula(1)
     piApproximations.chudnovskyFormula(1)
+    piApproximations.graphConvergence(piApproximations.leibnizFormula, 100)
+    piApproximations.graphConvergence(piApproximations.nilakanthaFormula, 50, 10, 50)
