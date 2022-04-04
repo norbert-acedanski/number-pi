@@ -1,6 +1,5 @@
 import math
 import matplotlib.pyplot as plt
-import sys
 
 class CalculatePi():
     def __init__(self):
@@ -96,8 +95,7 @@ class CalculatePi():
         #     stop_index = len(element_list)
         stop_index = len(element_list) if stop_index == -1 else stop_index
         if start_index < 0 or stop_index > len(element_list):
-            print("Value of start_index or stop_index exceeded")
-            sys.exit()
+            raise ValueError('Value of "start_index" or "stop_index" exceeded')
         # plt.figure(self.plot_number)
         plt.figure("Convergence of the " + function_to_work_with.__name__)
         plt.plot(range(start_index, len(element_list[start_index: stop_index]) + start_index), element_list[start_index: stop_index], label=function_to_work_with.__name__, marker="o")
