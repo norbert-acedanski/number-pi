@@ -4,7 +4,7 @@
 Script provides some basic information about the number π, a few ways of calculating it and visualization of the convergence of the series used to calculate π.
 
 # Built With
-Python 3.8.0
+Python 3.9.10
 
 # Getting started
 
